@@ -1,75 +1,84 @@
 # skill-creator-claude
 
-> The best skill-creation methodology, available to everyone.
+> Anthropic's best-in-class skill creation methodology — now available on any agent platform.
 
-## 这是什么
+Anthropic built an exceptional skill-creator into Claude Code: a full development loop covering drafting, eval, iteration, benchmarking, and description optimization. This repo is a minimal, faithful adaptation that removes Claude Code-specific dependencies so anyone can use it — no matter which agent platform they're on.
 
-这是 **Anthropic 为 Claude Code 内置的 skill-creator**，经过最小改动，使其可以在任何支持 subagent 的 agent 平台上运行。
+---
 
-原版 skill-creator 是 Anthropic 工程师精心设计的 skill 开发工具链，涵盖从草稿到测评、迭代、description 优化的完整闭环。我们认为这套方法论非常优秀，应当让更多人用上它——而不只是 Claude Code 的用户。
+## Origin & Attribution
 
-## 原版出处
+- **Original author**: Anthropic
+- **License**: Apache 2.0 (see [LICENSE](./LICENSE))
+- **Original source**: Claude Code built-in plugin (`~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator`)
+- **Full experience**: [Claude Code](https://claude.ai/code) — free to use, and where 100% of the features work
 
-- **原作者**：Anthropic
-- **许可证**：Apache 2.0（见 [LICENSE](./LICENSE)）
-- **原始来源**：Claude Code 客户端内置插件 (`~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator`)
-- **完整能力体验**：[Claude Code](https://claude.ai/code)（免费可用）
+This repository is a derivative work under Apache 2.0. All intellectual credit belongs to Anthropic.
 
-## 我们的原则
+---
 
-- **最小改动**：只移除无法跨平台运行的硬依赖，保留 100% 的方法论和工具脚本
-- **保留归属**：Apache 2.0 要求的所有版权声明和 LICENSE 文件完整保留
-- **普惠大众**：让没有使用过 Claude Code 的用户也能体验到最优秀的 skill 设计哲学
-- **引流原版**：如果你想体验 100% 的功能，去用 Claude Code——这个版本是入口，不是替代
+## Our Philosophy
 
-## 与原版的差异（变更日志）
+- **Minimal changes**: Only remove hard dependencies that prevent cross-platform use. The methodology, scripts, and tooling are untouched.
+- **Full attribution**: All copyright notices and LICENSE files preserved as required by Apache 2.0, and as a matter of principle.
+- **Accessible to everyone**: The original skill-creator is outstanding — it shouldn't be exclusive to Claude Code users.
+- **Gateway, not replacement**: If you want 100% of the capability, use Claude Code. This version is the on-ramp.
 
-我们只做了 **4 处修改**，改动量 < 10%，全部在 `skills/skill-creator/SKILL.md`：
+---
 
-| # | 修改内容 | 原因 |
+## What Was Changed
+
+Only **4 modifications** to `skills/skill-creator/SKILL.md` (~10% of the file). Everything else is identical to the original.
+
+| # | Change | Reason |
 |---|---|---|
-| 1 | 文件头添加修改声明注释 | Apache 2.0 要求标注修改 |
-| 2 | Description Optimization Step 3：添加平台说明，注明 `run_loop.py` 需要 `claude -p` CLI，提供无 CLI 时的手动替代方案 | `claude -p` 是 Claude Code 专有命令行工具 |
-| 3 | "Package and Present" 章节：移除 `present_files` 工具的条件判断，直接运行 `package_skill.py` | `present_files` 是 Claude Code 专有工具 |
-| 4 | 合并"Claude.ai-specific"和"Cowork-Specific"两个平台章节为统一的"Platform Notes"，移除末尾 TodoList 提示 | 统一跨平台说明，移除 Claude Code UI 专有功能引用 |
+| 1 | Added modification notice comment at top of SKILL.md | Apache 2.0 requires noting changes in modified files |
+| 2 | Description Optimization Step 3: added platform note that `run_loop.py` requires the `claude -p` CLI, with a manual fallback for other platforms | `claude -p` is a Claude Code-exclusive CLI tool |
+| 3 | "Package and Present": removed the `present_files` tool condition, simplified to always run `package_skill.py` | `present_files` is a Claude Code-exclusive tool |
+| 4 | Merged "Claude.ai-specific" and "Cowork-Specific" sections into a single "Platform Notes" section; removed TodoList reminder | Unified cross-platform guidance; removed Claude Code UI references |
 
-**未改动的内容**（即全部核心内容）：
-- 完整的 skill 开发方法论
-- 所有 Python 脚本（`run_eval.py`、`run_loop.py`、`improve_description.py` 等）
-- eval viewer 和 benchmark 系统
-- 测评流程、grading、blind comparison
-- 所有 agent 子文件（`agents/grader.md`、`agents/comparator.md`、`agents/analyzer.md`）
+**Unchanged** (i.e., everything that matters):
+- Complete skill development methodology
+- All Python scripts (`run_eval.py`, `run_loop.py`, `improve_description.py`, etc.)
+- Eval viewer and benchmark system
+- Grading and blind comparison workflows
+- All agent files (`agents/grader.md`, `agents/comparator.md`, `agents/analyzer.md`)
 - `references/schemas.md`
 
-## 功能对比
+---
 
-| 功能 | 本版本 | Claude Code 原版 |
+## Feature Comparison
+
+| Feature | This version | Claude Code (original) |
 |---|---|---|
-| Skill 起草与迭代 | ✅ | ✅ |
-| 测评与 eval viewer | ✅（需 Python） | ✅ |
-| Benchmark 对比 | ✅（需 subagents） | ✅ |
-| Description 优化（improve） | ✅（需 `ANTHROPIC_API_KEY`） | ✅ |
-| Description 触发率测试 | ❌ 需 `claude -p` CLI | ✅ |
-| 打包 `.skill` 文件 | ✅ | ✅ |
+| Skill drafting & iteration | ✅ | ✅ |
+| Eval runner & viewer | ✅ (requires Python) | ✅ |
+| Benchmark comparison | ✅ (requires subagents) | ✅ |
+| Description improvement loop | ✅ (requires `ANTHROPIC_API_KEY`) | ✅ |
+| Description trigger-rate testing | ❌ requires `claude -p` CLI | ✅ |
+| Skill packaging (`.skill` file) | ✅ | ✅ |
 
-## 使用方式
+---
 
-### 通过 ClawHub 安装
+## Installation
+
+### Via ClawHub
 ```bash
 clawhub install plabzzxx/skill-creator-claude
 ```
 
-### 手动安装
-将 `skills/skill-creator/` 目录复制到你的 agent 平台的 skills 目录即可。
+### Manual
+Copy the `skills/skill-creator/` directory into your agent platform's skills folder.
 
-### Description 优化脚本（可选）
-如需使用 `improve_description.py` 自动优化 description，需设置环境变量：
+### Optional: description improvement script
+`improve_description.py` uses the Anthropic API directly and works on any platform:
 ```bash
 export ANTHROPIC_API_KEY=your_key_here
 ```
 
-## 致谢
+---
 
-完整的设计思想、代码和方法论版权归 Anthropic 所有。本仓库是在 Apache 2.0 许可证下的 derivative work，目的是扩大受益范围，而非取代原版。
+## Credits
 
-如果你觉得这个 skill 有价值，去试试 [Claude Code](https://claude.ai/code) 吧，那里有 100% 的完整体验。
+All design, code, and methodology copyright Anthropic, licensed under Apache 2.0.  
+If this skill is useful to you, go try [Claude Code](https://claude.ai/code) — that's where the full picture lives.
