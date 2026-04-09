@@ -28,7 +28,7 @@ Anthropic 在 Claude Code 中内置了一套卓越的 skill-creator：完整涵�
 
 ## 与原版的差异
 
-只对 `skills/skill-creator/SKILL.md` 做了 **4 处修改**，改动量 < 10%，其余完全一致。
+只对 `SKILL.md` 做了 **4 处修改**，改动量 < 10%，其余完全一致。
 
 | # | 修改内容 | 原因 |
 |---|---|---|
@@ -68,7 +68,7 @@ clawhub install plabzzxx/skill-creator-claude
 ```
 
 ### 手动安装
-将 `skills/skill-creator/` 目录复制到你的 agent 平台的 skills 目录即可。
+Clone 或复制整个仓库到你的 agent 平台的 skills 目录即可。
 
 ### Description 优化脚本（可选）
 `improve_description.py` 直接调用 Anthropic API，任何平台均可使用，需设置：

@@ -30,7 +30,7 @@ This repository is a derivative work under Apache 2.0. All intellectual credit b
 
 ## What Was Changed
 
-Only **4 modifications** to `skills/skill-creator/SKILL.md` (~10% of the file). Everything else is identical to the original.
+Only **4 modifications** to `SKILL.md` (~10% of the file). Everything else is identical to the original.
 
 | # | Change | Reason |
 |---|---|---|
@@ -70,7 +70,7 @@ clawhub install plabzzxx/skill-creator-claude
 ```
 
 ### Manual
-Copy the `skills/skill-creator/` directory into your agent platform's skills folder.
+Clone or copy this entire repository into your agent platform's skills directory.
 
 ### Optional: description improvement script
 `improve_description.py` uses the Anthropic API directly and works on any platform:
