@@ -1,5 +1,7 @@
 # skill-creator-claude
 
+[中文版](./README_CN.md)
+
 > Anthropic's best-in-class skill creation methodology — now available on any agent platform.
 
 Anthropic built an exceptional skill-creator into Claude Code: a full development loop covering drafting, eval, iteration, benchmarking, and description optimization. This repo is a minimal, faithful adaptation that removes Claude Code-specific dependencies so anyone can use it — no matter which agent platform they're on.
